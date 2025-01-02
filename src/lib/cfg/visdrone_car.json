@@ -1,0 +1,15 @@
+{
+    "root":"D:/Dataset",
+    "train":
+    {
+        "visdrone_pedi":"./data/visdrone_car.trainval"
+    },
+    "test_emb":
+    {
+        "visdrone_pedi":"./data/visdrone_car.trainval"
+    },
+    "test":
+    {
+        "visdrone_pedi":"./data/visdrone_car.trainval"
+    }
+}
