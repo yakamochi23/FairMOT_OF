@@ -5,7 +5,7 @@ This project is a Multi-Object Tracking (MOT) method for UAV-captured videos, de
 
 ## 1. Overview
 
-Traditional Multi-Object Tracking (MOT) methods perform well on videos from static cameras. However, in videos captured by Unmanned Aerial Vehicles (UAVs), the camera moves freely in 3D space. This causes significant changes in object appearance and complicates their motion paths, leading to a notable decline in tracking performance for conventional MOT methods.
+Traditional Multi-Object Tracking (MOT) methods perform well on videos from static cameras. However, in videos captured by Unmanned Aerial Vehicles (UAV), the camera moves freely in 3D space. This causes significant changes in object appearance and complicates their motion paths, leading to a notable decline in tracking performance for conventional MOT methods.
 
 This project addresses this issue by proposing a position correction algorithm that uses Optical Flow.
 The key idea is to:
@@ -35,6 +35,35 @@ Our algorithm works as follows:
 ## 4. Experimental Rsults
 We evaluated our method on two public UAV-based MOT datasets: **VisDrone2019** and **UAVDT**.
 
-## Acknowledgements
+### Quantitative Results
+
+Compared to the FairMOT baseline, our method showed a consistent reduction in ID Switches (IDs) and Fragmentations (FM), which are critical metrics for tracking continuity.
+
+**Experiment A: VisDrone2019 - `pedestrian` class** 
+| Method | IDs (↓) | FM (↓) | MOTA (↑) |
+| :--- | :---: | :---: | :---: |
+| FairMOT | 857 | 3201 | 31.48% |
+| **Ours (FairMOT + OF)** | **760** | **3156**  | 27.05%  |
+
+**Experiment B: VisDrone2019 - `car` class** 
+
+| Method | IDs (↓) | FM (↓) | MOTA (↑) |
+| :--- | :---: | :---: | :---: |
+| FairMOT | 1449  | 2296  | 44.29%  |
+| **Ours (FairMOT + OF)** | **893**  | **1973**  | 41.27%  |
+
+**Experiment C: UAVDT - `car` class** 
+
+| Method | IDs (↓) | FM (↓) | MOTA (↑) |
+| :--- | :---: | :---: | :---: |
+| FairMOT | 806  | 5522  | 35.36%  |
+| **Ours (FairMOT + OF)** | **774**  | **5500**  | 34.85%  |
+
+Note on MOTA: While our method improves tracking continuity (fewer IDs and FM), the MOTA score slightly decreased. This is likely because the position correction, while beneficial for association, can sometimes shift the BBox away from the ground truth, increasing False Positives (FP) and False Negatives (FN).
+
+## 5. Setup and Usage
+Coming Soon.
+
+## 6. Acknowledgements
 - This project is heavily based on FairMOT. We thank the authors for their great work.
 - We thank the creators of the [VisDrone2019](https://github.com/VisDrone/VisDrone-Dataset)  and [UAVDT](https://arxiv.org/abs/1804.00438)  datasets for making their valuable data publicly available.
