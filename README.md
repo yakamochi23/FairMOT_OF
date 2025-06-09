@@ -32,6 +32,8 @@ Our algorithm works as follows:
 
 3. **Correct Object Position**: The detected BBox position is then adjusted by subtracting the estimated background motion. This correction aligns the object's position to where it would be if the camera were static, making it easier for the tracking algorithm (Kalman Filter) to associate it across frames.
 
+![](assets/neighboring_area.png)
+
 ## 4. Experimental Rsults
 We evaluated our method on two public UAV-based MOT datasets: **VisDrone2019** and **UAVDT**.
 
